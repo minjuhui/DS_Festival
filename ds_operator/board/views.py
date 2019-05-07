@@ -50,7 +50,7 @@ def boardpost(request):
 
 def delete(request, board_id):
         board = Board.objects.get(pk=board_id)
-        if board.pwd==request.GET['passwd']:
+        if board.pwd==request.POST['passwd']:
                 board.delete()
                 return redirect('show')
         else:
